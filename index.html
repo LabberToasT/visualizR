@@ -7,5 +7,15 @@
   <title></title>
 </head>
 <body>
+  <?php
+    $sqlQuery = "SELECT * FROM berlin_elections";
+    $result = mysqli_query($connection, $sqlQuery);
+    $dbResultCheck = mysqli_num_rows($result);
+    if ($dbResultCheck > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo $row["BezirkNr"];
+        }
+    }
+  ?>
 </body>
 </html>
