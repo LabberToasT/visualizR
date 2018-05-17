@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/bootstrap.min.js"></script>
+        <title>Berliner Wahlen visualizR</title>
+    </head>
+    <body>
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="header-content">
+                            <h1 class="title">visualizR</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="map-wrapper">
+                        <img class="berlin-map" src="img/map.png"/> 
+                        <p class="img-caption">Kleine Dateninfo zur Karte</p>
+                    </div>
+                </div>
+                <div class="col-md-12 parteifilter-wrapper">
+                    <div class="filter-title">
+                        <h1>Parteifilter:</h1>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-3">
+                        <ul class="filters">
+                            <li>
+                                <input type="checkbox" value="1" id="parteifilter1" />
+                                <label for="parteifilter1">Partei1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="2" id="parteifilter2" />
+                                <label for="parteifilter2">Partei2</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="filters">
+                            <li>
+                                <input type="checkbox" value="3" id="parteifilter3" />
+                                <label for="parteifilter3">Partei3</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="4" id="parteifilter4" />
+                                <label for="parteifilter4">Partei4</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="filters">
+                            <li>
+                                <input type="checkbox" value="5" id="parteifilter5" />
+                                <label for="parteifilter5">Partei5</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="6" id="parteifilter6" />
+                                <label for="parteifilter6">Partei6</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="filters">
+                            <li>
+                                <input type="checkbox" value="7" id="filter7" />
+                                <label for="filter7">Partei7</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="8" id="filter8" />
+                                <label for="filter8">Partei8</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 bezirkfilter-wrapper">
+                <div class="filter-title">
+                    <h1>Bezirkfilter:</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="filters">
+                            <li>
+                                <input type="checkbox" value="1" id="bezirkfilter1" />
+                                <label for="bezirkfilter1">Mitte</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="2" id="bezirkfilter2" />
+                                <label for="bezirkfilter2">Friedrichshain-Kreuzberg</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="3" id="bezirkfilter3" />
+                                <label for="bezirkfilter3">Pankow</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="4" id="bezirkfilter4" />
+                                <label for="bezirkfilter4">Charlottenburg-Wilmersdorf</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="filters">
+                            <li>
+                                <input type="checkbox" value="5" id="bezirkfilter5" />
+                                <label for="bezirkfilter5">Spandau</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="6" id="bezirkfilter6" />
+                                <label for="bezirkfilter6">Steglitz-Zehlendorf</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="7" id="bezirkfilter7" />
+                                <label for="bezirkfilter7">Tempelhof-Schöneberg</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="8" id="bezirkfilter8" />
+                                <label for="bezirkfilter8">Neukölln</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="filters">
+                            <li>
+                                <input type="checkbox" value="9" id="bezirkfilter9" />
+                                <label for="bezirkfilter9">Treptow-Köpenick</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="10" id="bezirkfilter10" />
+                                <label for="bezirkfilter10">Marzahn-Hellersdorf</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="11" id="bezirkfilter11" />
+                                <label for="bezirkfilter11">Lichtenberg (Hohenschönhausen)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="12" id="bezirkfilter12" />
+                                <label for="bezirkfilter12">Reinickendorf</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-content">
+                            Hier kommt der Footer Content rein! :----)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        --->
+    </body>
+</html>
