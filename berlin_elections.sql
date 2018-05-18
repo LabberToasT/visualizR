@@ -1,41 +1,49 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.5
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 15, 2018 at 07:33 PM
--- Server version: 5.6.38
--- PHP Version: 7.1.12
+-- Host: 127.0.0.1
+-- Erstellungszeit: 18. Mai 2018 um 10:04
+-- Server-Version: 10.1.24-MariaDB
+-- PHP-Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Database: `visualizr`
+-- Datenbank: `visualizr`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berlin_elections`
+-- Tabellenstruktur für Tabelle `berlin_elections`
 --
 
 CREATE TABLE `berlin_elections` (
   `id` int(11) NOT NULL,
-  `BezirkNr` int(8) DEFAULT NULL,
-  `BezirkName` varchar(26) DEFAULT NULL,
-  `Wahlbezirksart` varchar(14) DEFAULT NULL,
-  `Wahlbezirk` int(10) DEFAULT NULL,
-  `Ageordnetenhauswahlkreis` int(25) DEFAULT NULL,
-  `Bundestagswahlkreis` int(19) DEFAULT NULL,
-  `OstWest` varchar(7) DEFAULT NULL,
-  `Wahlberechtigte` int(15) DEFAULT NULL,
-  `WalberechtigteA1` int(17) DEFAULT NULL,
-  `WalberechtigteA2` int(17) DEFAULT NULL,
-  `Waehler` int(7) DEFAULT NULL,
-  `Gueltig` int(7) DEFAULT NULL,
+  `bezirk_nr` int(8) DEFAULT NULL,
+  `bezirk_name` varchar(26) DEFAULT NULL,
+  `wahlbezirksart` varchar(14) DEFAULT NULL,
+  `wahlbezirk` int(10) DEFAULT NULL,
+  `ageordnetenhauswahlkreis` int(25) DEFAULT NULL,
+  `bundestagswahlkreis` int(19) DEFAULT NULL,
+  `ost_west` varchar(7) DEFAULT NULL,
+  `wahlberechtigte` int(15) DEFAULT NULL,
+  `wahlberechtigte_a1` int(17) DEFAULT NULL,
+  `wahlberechtigte_a2` int(17) DEFAULT NULL,
+  `waehler` int(7) DEFAULT NULL,
+  `gueltig` int(7) DEFAULT NULL,
   `ungueltig` int(9) DEFAULT NULL,
-  `CDU` int(3) DEFAULT NULL,
+  `cdu` int(3) DEFAULT NULL,
   `die_linke` int(9) DEFAULT NULL,
   `spd` int(3) DEFAULT NULL,
   `gruene` int(4) DEFAULT NULL,
@@ -46,7 +54,7 @@ CREATE TABLE `berlin_elections` (
   `mlpd` int(4) DEFAULT NULL,
   `afd` int(3) DEFAULT NULL,
   `big` int(3) DEFAULT NULL,
-  `pro_Deutschland` varchar(15) DEFAULT NULL,
+  `pro_deutschland` varchar(15) DEFAULT NULL,
   `freie_waehler` int(11) DEFAULT NULL,
   `die_partei` int(10) DEFAULT NULL,
   `boes` int(4) DEFAULT NULL,
@@ -64,10 +72,10 @@ CREATE TABLE `berlin_elections` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `berlin_elections`
+-- Daten für Tabelle `berlin_elections`
 --
 
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
 (1, 1, 'Mitte', 'W', 100, 1, 75, 'O', 1264, 894, 370, 634, 622, 12, 167, 109, 168, 107, 14, 25, 4, 0, 2, 17, 0, 'x', 0, 5, 1, 'x', 'x', 0, 'x', 'x', 'x', 3, 'x', 'x', 'x', 'x'),
 (2, 1, 'Mitte', 'W', 101, 1, 75, 'O', 1146, 778, 368, 520, 519, 1, 158, 77, 132, 97, 15, 13, 4, 1, 0, 15, 0, 'x', 2, 1, 3, 'x', 'x', 0, 'x', 'x', 'x', 1, 'x', 'x', 'x', 'x'),
 (3, 1, 'Mitte', 'W', 102, 1, 75, 'O', 979, 680, 299, 476, 470, 6, 112, 90, 96, 103, 12, 28, 0, 0, 0, 13, 0, 'x', 1, 10, 2, 'x', 'x', 1, 'x', 'x', 'x', 2, 'x', 'x', 'x', 'x'),
@@ -345,7 +353,7 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (275, 2, 'Friedrichshain-Kreuzberg', 'W', 315, 3, 83, 'W', 1725, 1319, 406, 951, 932, 19, 79, 98, 156, 498, 3, 39, 1, 0, 0, 10, 6, 'x', 1, 21, 0, '7', 'x', 0, '4', 'x', '6', 0, 'x', 'x', '3', 'x'),
 (276, 2, 'Friedrichshain-Kreuzberg', 'W', 401, 4, 83, 'O', 2148, 1657, 491, 1066, 1045, 21, 169, 431, 178, 157, 6, 26, 22, 0, 0, 32, 0, 'x', 3, 7, 0, '2', 'x', 0, '3', 'x', '7', 0, 'x', 'x', '2', 'x'),
 (277, 2, 'Friedrichshain-Kreuzberg', 'W', 402, 4, 83, 'O', 2052, 1574, 478, 1036, 1029, 7, 171, 407, 165, 170, 6, 23, 15, 0, 0, 45, 1, 'x', 3, 11, 0, '4', 'x', 0, '2', 'x', '2', 0, 'x', 'x', '4', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
 (278, 2, 'Friedrichshain-Kreuzberg', 'W', 403, 4, 83, 'O', 2180, 1709, 471, 1166, 1146, 20, 210, 333, 171, 291, 12, 37, 22, 0, 0, 29, 1, 'x', 8, 19, 0, '3', 'x', 0, '1', 'x', '8', 0, 'x', 'x', '1', 'x'),
 (279, 2, 'Friedrichshain-Kreuzberg', 'W', 404, 4, 83, 'O', 2160, 1603, 557, 1162, 1150, 12, 194, 368, 211, 248, 19, 38, 12, 0, 0, 35, 0, 'x', 2, 13, 0, '4', 'x', 0, '1', 'x', '2', 0, 'x', 'x', '3', 'x'),
 (280, 2, 'Friedrichshain-Kreuzberg', 'W', 405, 4, 83, 'O', 1831, 1419, 412, 977, 963, 14, 208, 224, 210, 220, 7, 35, 10, 0, 0, 28, 0, 'x', 3, 9, 0, '0', 'x', 0, '1', 'x', '4', 0, 'x', 'x', '4', 'x'),
@@ -614,7 +622,7 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (543, 3, 'Pankow', 'W', 918, 9, 83, 'O', 1801, 1326, 475, 1038, 1024, 14, 152, 175, 199, 407, 12, 27, 3, 0, 0, 22, 1, 'x', 3, 10, 0, '3', 'x', 0, '4', 'x', '0', 0, 'x', 'x', '6', 'x'),
 (544, 3, 'Pankow', 'W', 919, 9, 83, 'O', 1697, 1228, 469, 975, 971, 4, 172, 135, 215, 356, 17, 28, 4, 1, 0, 20, 0, 'x', 2, 13, 0, '3', 'x', 0, '3', 'x', '1', 0, 'x', 'x', '1', 'x'),
 (545, 3, 'Pankow', 'W', 920, 9, 83, 'O', 1194, 948, 246, 602, 594, 8, 132, 211, 118, 50, 6, 15, 26, 0, 0, 25, 1, 'x', 1, 3, 0, '1', 'x', 0, '0', 'x', '4', 0, 'x', 'x', '1', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
 (546, 3, 'Pankow', 'W', 921, 9, 83, 'O', 1292, 1047, 245, 655, 635, 20, 133, 175, 135, 97, 3, 30, 15, 1, 0, 26, 0, 'x', 4, 7, 0, '1', 'x', 0, '1', 'x', '6', 0, 'x', 'x', '1', 'x'),
 (547, 3, 'Pankow', 'W', 922, 9, 83, 'O', 1268, 931, 337, 772, 762, 10, 208, 102, 187, 191, 17, 20, 2, 1, 0, 17, 0, 'x', 1, 5, 0, '2', 'x', 0, '1', 'x', '3', 0, 'x', 'x', '5', 'x'),
 (548, 3, 'Pankow', 'W', 923, 9, 83, 'O', 657, 540, 117, 273, 265, 8, 82, 87, 60, 24, 1, 2, 2, 0, 0, 5, 0, 'x', 0, 2, 0, '0', 'x', 0, '0', 'x', '0', 0, 'x', 'x', '0', 'x'),
@@ -879,7 +887,7 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (807, 4, 'Charlottenburg-Wilmersdorf', 'W', 806, 1, 80, 'W', 1294, 930, 364, 607, 594, 13, 174, 55, 194, 97, 8, 18, 2, 1, 0, 33, 0, 'x', 3, 7, 0, 'x', '1', 0, 'x', 'x', 'x', 0, '1', 'x', 'x', 'x'),
 (808, 4, 'Charlottenburg-Wilmersdorf', 'B', 1, 1, 78, 'W', 0, 0, 0, 556, 548, 8, 237, 30, 155, 51, 12, 29, 7, 2, 0, 19, 0, 'x', 6, 0, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (809, 4, 'Charlottenburg-Wilmersdorf', 'B', 1, 1, 78, 'W', 0, 0, 0, 534, 519, 15, 238, 26, 163, 22, 10, 19, 11, 3, 0, 21, 4, 'x', 2, 0, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
 (810, 4, 'Charlottenburg-Wilmersdorf', 'B', 1, 1, 78, 'W', 0, 0, 0, 610, 588, 22, 251, 36, 193, 30, 14, 28, 14, 5, 0, 10, 2, 'x', 5, 0, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (811, 4, 'Charlottenburg-Wilmersdorf', 'B', 1, 1, 78, 'W', 0, 0, 0, 517, 506, 11, 190, 30, 173, 40, 12, 25, 8, 3, 0, 18, 2, 'x', 5, 0, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (812, 4, 'Charlottenburg-Wilmersdorf', 'B', 1, 1, 78, 'W', 0, 0, 0, 963, 950, 13, 301, 79, 303, 165, 19, 38, 8, 5, 0, 22, 4, 'x', 6, 0, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
@@ -1153,9 +1161,9 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (1080, 6, 'Steglitz-Zehlendorf', 'W', 202, 2, 79, 'W', 1751, 1342, 409, 937, 915, 22, 319, 92, 286, 95, 14, 45, 8, 0, 0, 42, 0, 'x', 3, 11, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1081, 6, 'Steglitz-Zehlendorf', 'W', 203, 2, 79, 'W', 1849, 1406, 443, 931, 915, 16, 316, 85, 294, 98, 18, 29, 5, 0, 0, 53, 0, 'x', 9, 8, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1082, 6, 'Steglitz-Zehlendorf', 'W', 204, 2, 79, 'W', 1681, 1285, 396, 937, 929, 8, 344, 68, 292, 105, 30, 24, 11, 1, 0, 41, 0, 'x', 7, 6, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
-(1083, 6, 'Steglitz-Zehlendorf', 'W', 205, 2, 79, 'W', 1753, 1277, 476, 832, 819, 13, 311, 51, 269, 81, 10, 33, 14, 0, 0, 34, 0, 'x', 6, 10, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
-(1084, 6, 'Steglitz-Zehlendorf', 'W', 206, 2, 79, 'W', 1660, 1190, 470, 897, 888, 9, 410, 51, 251, 80, 16, 16, 7, 0, 0, 50, 0, 'x', 4, 3, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1083, 6, 'Steglitz-Zehlendorf', 'W', 205, 2, 79, 'W', 1753, 1277, 476, 832, 819, 13, 311, 51, 269, 81, 10, 33, 14, 0, 0, 34, 0, 'x', 6, 10, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x');
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1084, 6, 'Steglitz-Zehlendorf', 'W', 206, 2, 79, 'W', 1660, 1190, 470, 897, 888, 9, 410, 51, 251, 80, 16, 16, 7, 0, 0, 50, 0, 'x', 4, 3, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1085, 6, 'Steglitz-Zehlendorf', 'W', 207, 2, 79, 'W', 1552, 1188, 364, 785, 766, 19, 266, 72, 253, 94, 11, 29, 7, 1, 0, 25, 0, 'x', 1, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1086, 6, 'Steglitz-Zehlendorf', 'W', 208, 2, 79, 'W', 1572, 1195, 377, 794, 776, 18, 295, 54, 269, 72, 14, 12, 12, 1, 0, 40, 0, 'x', 4, 3, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1087, 6, 'Steglitz-Zehlendorf', 'W', 209, 2, 79, 'W', 1951, 1368, 583, 934, 918, 16, 300, 75, 326, 112, 23, 28, 4, 1, 0, 39, 0, 'x', 3, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
@@ -1412,9 +1420,9 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (1338, 7, 'Tempelhof-Sch?neberg', 'W', 612, 6, 81, 'W', 1738, 1226, 512, 891, 877, 14, 416, 40, 221, 99, 9, 18, 18, 1, 0, 48, 1, 'x', 0, 6, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1339, 7, 'Tempelhof-Sch?neberg', 'W', 613, 6, 81, 'W', 2061, 1626, 435, 1177, 1158, 19, 548, 87, 278, 102, 15, 28, 21, 3, 0, 62, 1, 'x', 1, 12, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1340, 7, 'Tempelhof-Sch?neberg', 'W', 614, 6, 81, 'W', 1692, 1217, 475, 943, 929, 14, 502, 41, 214, 70, 21, 21, 10, 1, 0, 40, 5, 'x', 2, 2, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
-(1341, 7, 'Tempelhof-Sch?neberg', 'W', 615, 6, 81, 'W', 1843, 1365, 478, 1041, 1026, 15, 493, 46, 263, 119, 13, 21, 7, 1, 0, 46, 4, 'x', 8, 5, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
-(1342, 7, 'Tempelhof-Sch?neberg', 'W', 701, 7, 81, 'W', 1833, 1452, 381, 941, 920, 21, 446, 60, 239, 56, 13, 26, 11, 1, 0, 49, 6, 'x', 8, 5, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1341, 7, 'Tempelhof-Sch?neberg', 'W', 615, 6, 81, 'W', 1843, 1365, 478, 1041, 1026, 15, 493, 46, 263, 119, 13, 21, 7, 1, 0, 46, 4, 'x', 8, 5, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x');
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1342, 7, 'Tempelhof-Sch?neberg', 'W', 701, 7, 81, 'W', 1833, 1452, 381, 941, 920, 21, 446, 60, 239, 56, 13, 26, 11, 1, 0, 49, 6, 'x', 8, 5, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1343, 7, 'Tempelhof-Sch?neberg', 'W', 702, 7, 81, 'W', 1747, 1324, 423, 1049, 1030, 19, 508, 33, 262, 126, 18, 23, 9, 1, 0, 44, 0, 'x', 2, 4, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1344, 7, 'Tempelhof-Sch?neberg', 'W', 703, 7, 81, 'W', 1950, 1556, 394, 1029, 1005, 24, 453, 76, 308, 71, 16, 18, 19, 2, 0, 30, 2, 'x', 3, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1345, 7, 'Tempelhof-Sch?neberg', 'W', 704, 7, 81, 'W', 1389, 1023, 366, 625, 611, 14, 284, 41, 158, 46, 6, 15, 16, 1, 0, 32, 1, 'x', 4, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
@@ -1683,9 +1691,9 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (1608, 8, 'Neuk?lln', 'B', 4, 4, 82, 'W', 0, 0, 0, 884, 862, 22, 405, 36, 275, 51, 22, 21, 12, 4, 0, 22, 0, 'x', 8, 6, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1609, 8, 'Neuk?lln', 'B', 4, 4, 82, 'W', 0, 0, 0, 946, 934, 12, 473, 34, 273, 53, 29, 20, 10, 2, 0, 29, 0, 'x', 2, 9, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1610, 8, 'Neuk?lln', 'B', 4, 4, 82, 'W', 0, 0, 0, 834, 810, 24, 395, 32, 242, 49, 25, 15, 16, 1, 0, 22, 0, 'x', 4, 9, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
-(1611, 8, 'Neuk?lln', 'B', 4, 4, 82, 'W', 0, 0, 0, 952, 921, 31, 443, 49, 250, 63, 30, 27, 14, 2, 0, 26, 0, 'x', 9, 8, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
-(1612, 8, 'Neuk?lln', 'B', 5, 5, 82, 'W', 0, 0, 0, 1149, 1118, 31, 537, 60, 328, 81, 37, 23, 15, 2, 1, 24, 0, 'x', 3, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1611, 8, 'Neuk?lln', 'B', 4, 4, 82, 'W', 0, 0, 0, 952, 921, 31, 443, 49, 250, 63, 30, 27, 14, 2, 0, 26, 0, 'x', 9, 8, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x');
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1612, 8, 'Neuk?lln', 'B', 5, 5, 82, 'W', 0, 0, 0, 1149, 1118, 31, 537, 60, 328, 81, 37, 23, 15, 2, 1, 24, 0, 'x', 3, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1613, 8, 'Neuk?lln', 'B', 5, 5, 82, 'W', 0, 0, 0, 1117, 1092, 25, 545, 39, 338, 61, 16, 22, 30, 0, 0, 26, 0, 'x', 9, 6, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1614, 8, 'Neuk?lln', 'B', 5, 5, 82, 'W', 0, 0, 0, 828, 814, 14, 352, 55, 251, 32, 15, 26, 29, 0, 1, 29, 0, 'x', 6, 18, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
 (1615, 8, 'Neuk?lln', 'B', 5, 5, 82, 'W', 0, 0, 0, 977, 948, 29, 414, 69, 304, 35, 24, 27, 23, 0, 0, 35, 0, 'x', 8, 9, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', 'x', 'x', 'x'),
@@ -1943,9 +1951,9 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (1867, 10, 'Marzahn-Hellersdorf', 'W', 513, 5, 85, 'O', 1898, 1489, 409, 1113, 1102, 11, 421, 308, 152, 66, 20, 26, 24, 1, 0, 61, 0, '5', 8, 6, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '4', 'x', 'x'),
 (1868, 10, 'Marzahn-Hellersdorf', 'W', 514, 5, 85, 'O', 2090, 1676, 414, 1266, 1251, 15, 452, 385, 198, 54, 9, 34, 31, 3, 0, 64, 0, '11', 6, 1, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '3', 'x', 'x'),
 (1869, 10, 'Marzahn-Hellersdorf', 'W', 515, 5, 85, 'O', 2030, 1566, 464, 1217, 1203, 14, 438, 377, 215, 35, 7, 27, 27, 1, 0, 62, 0, '2', 5, 4, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '3', 'x', 'x'),
-(1870, 10, 'Marzahn-Hellersdorf', 'W', 516, 5, 85, 'O', 2148, 1707, 441, 1391, 1374, 17, 497, 400, 252, 52, 10, 34, 26, 2, 0, 73, 0, '8', 11, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '2', 'x', 'x'),
-(1871, 10, 'Marzahn-Hellersdorf', 'W', 517, 5, 85, 'O', 1920, 1455, 465, 1119, 1106, 13, 393, 326, 205, 36, 9, 27, 22, 0, 0, 59, 0, '8', 10, 11, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '0', 'x', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1870, 10, 'Marzahn-Hellersdorf', 'W', 516, 5, 85, 'O', 2148, 1707, 441, 1391, 1374, 17, 497, 400, 252, 52, 10, 34, 26, 2, 0, 73, 0, '8', 11, 7, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '2', 'x', 'x');
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(1871, 10, 'Marzahn-Hellersdorf', 'W', 517, 5, 85, 'O', 1920, 1455, 465, 1119, 1106, 13, 393, 326, 205, 36, 9, 27, 22, 0, 0, 59, 0, '8', 10, 11, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '0', 'x', 'x'),
 (1872, 10, 'Marzahn-Hellersdorf', 'W', 601, 6, 85, 'O', 1829, 1661, 168, 913, 891, 22, 140, 294, 177, 35, 6, 40, 97, 1, 0, 75, 0, '10', 7, 6, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '3', 'x', 'x'),
 (1873, 10, 'Marzahn-Hellersdorf', 'W', 602, 6, 85, 'O', 2012, 1772, 240, 931, 907, 24, 202, 304, 167, 33, 1, 30, 75, 3, 0, 60, 0, '14', 7, 8, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '3', 'x', 'x'),
 (1874, 10, 'Marzahn-Hellersdorf', 'W', 603, 6, 85, 'O', 1944, 1710, 234, 967, 952, 15, 194, 362, 180, 26, 10, 24, 74, 5, 0, 60, 0, '1', 4, 8, 0, 'x', 'x', 0, 'x', 'x', 'x', 0, 'x', '4', 'x', 'x'),
@@ -2210,9 +2218,9 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (2133, 12, 'Reinickendorf', 'W', 304, 3, 77, 'W', 830, 547, 283, 424, 417, 7, 213, 12, 116, 34, 7, 7, 5, 0, 0, 18, 0, 'x', 0, 4, 0, 'x', 'x', 0, 'x', '1', 'x', 0, 'x', 'x', 'x', 'x'),
 (2134, 12, 'Reinickendorf', 'W', 305, 3, 77, 'W', 1413, 1057, 356, 874, 864, 10, 433, 31, 243, 76, 17, 17, 10, 0, 0, 29, 0, 'x', 6, 0, 0, 'x', 'x', 0, 'x', '2', 'x', 0, 'x', 'x', 'x', 'x'),
 (2135, 12, 'Reinickendorf', 'W', 306, 3, 77, 'W', 1389, 1045, 344, 863, 853, 10, 408, 38, 248, 83, 18, 12, 3, 0, 0, 32, 0, 'x', 3, 1, 0, 'x', 'x', 0, 'x', '7', 'x', 0, 'x', 'x', 'x', 'x'),
-(2136, 12, 'Reinickendorf', 'W', 307, 3, 77, 'W', 1375, 1019, 356, 850, 840, 10, 409, 44, 236, 69, 19, 13, 5, 0, 0, 34, 0, 'x', 3, 4, 0, 'x', 'x', 0, 'x', '4', 'x', 0, 'x', 'x', 'x', 'x'),
-(2137, 12, 'Reinickendorf', 'W', 308, 3, 77, 'W', 1318, 955, 363, 792, 775, 17, 391, 32, 216, 49, 12, 18, 6, 0, 0, 40, 0, 'x', 6, 2, 0, 'x', 'x', 0, 'x', '3', 'x', 0, 'x', 'x', 'x', 'x');
-INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`, `Wahlbezirk`, `Ageordnetenhauswahlkreis`, `Bundestagswahlkreis`, `OstWest`, `Wahlberechtigte`, `WalberechtigteA1`, `WalberechtigteA2`, `Waehler`, `Gueltig`, `ungueltig`, `CDU`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_Deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(2136, 12, 'Reinickendorf', 'W', 307, 3, 77, 'W', 1375, 1019, 356, 850, 840, 10, 409, 44, 236, 69, 19, 13, 5, 0, 0, 34, 0, 'x', 3, 4, 0, 'x', 'x', 0, 'x', '4', 'x', 0, 'x', 'x', 'x', 'x');
+INSERT INTO `berlin_elections` (`id`, `bezirk_nr`, `bezirk_name`, `wahlbezirksart`, `wahlbezirk`, `ageordnetenhauswahlkreis`, `bundestagswahlkreis`, `ost_west`, `wahlberechtigte`, `wahlberechtigte_a1`, `wahlberechtigte_a2`, `waehler`, `gueltig`, `ungueltig`, `cdu`, `die_linke`, `spd`, `gruene`, `fdp`, `piraten`, `npd`, `bueso`, `mlpd`, `afd`, `big`, `pro_deutschland`, `freie_waehler`, `die_partei`, `boes`, `b`, `buendniss_21_rrp`, `dkp`, `die_violetten`, `ditsche`, `di_leo`, `sylla`, `fricke`, `otto`, `beckmann`, `snelinski`) VALUES
+(2137, 12, 'Reinickendorf', 'W', 308, 3, 77, 'W', 1318, 955, 363, 792, 775, 17, 391, 32, 216, 49, 12, 18, 6, 0, 0, 40, 0, 'x', 6, 2, 0, 'x', 'x', 0, 'x', '3', 'x', 0, 'x', 'x', 'x', 'x'),
 (2138, 12, 'Reinickendorf', 'W', 309, 3, 77, 'W', 1393, 1087, 306, 776, 764, 12, 346, 58, 225, 60, 22, 11, 4, 0, 0, 23, 0, 'x', 3, 5, 0, 'x', 'x', 0, 'x', '7', 'x', 0, 'x', 'x', 'x', 'x'),
 (2139, 12, 'Reinickendorf', 'W', 310, 3, 77, 'W', 1122, 837, 285, 674, 667, 7, 330, 35, 156, 62, 14, 16, 10, 0, 0, 37, 0, 'x', 1, 5, 0, 'x', 'x', 0, 'x', '1', 'x', 0, 'x', 'x', 'x', 'x'),
 (2140, 12, 'Reinickendorf', 'W', 311, 3, 77, 'W', 1275, 881, 394, 710, 701, 9, 312, 30, 208, 57, 15, 30, 9, 0, 0, 35, 0, 'x', 0, 3, 0, 'x', 'x', 0, 'x', '2', 'x', 0, 'x', 'x', 'x', 'x'),
@@ -2355,21 +2363,25 @@ INSERT INTO `berlin_elections` (`id`, `BezirkNr`, `BezirkName`, `Wahlbezirksart`
 (2277, 12, 'Reinickendorf', 'B', 6, 6, 77, 'W', 0, 0, 0, 825, 816, 9, 427, 23, 214, 70, 20, 16, 6, 0, 0, 29, 0, 'x', 1, 4, 0, 'x', 'x', 0, 'x', '6', 'x', 0, 'x', 'x', 'x', 'x');
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `berlin_elections`
+-- Indizes für die Tabelle `berlin_elections`
 --
 ALTER TABLE `berlin_elections`
   ADD KEY `id` (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `berlin_elections`
+-- AUTO_INCREMENT für Tabelle `berlin_elections`
 --
 ALTER TABLE `berlin_elections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2278;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2278;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
