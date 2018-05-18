@@ -21,3 +21,7 @@ ul.filters {
 .filter-wrapper {
     margin: 30px 0;
 }
+
+area { 
+    display: block;
+}
