@@ -9,31 +9,19 @@ require_once 'functions.php';
 </head>
 <body>
 	<?php
-		$data = testDatabaseQuery($connection);
+		$data = testDistrictName($connection);
 	?>
 	<!-- testDatabaseQuery -->
 
-	<p>testDatabaseQuery :</p> 
+	<p>testDistrictName :</p> 
 	<?php
-		$testData = testDatabaseQuery($connection);
+		$testData = testDistrictName($connection);
 		for ($i = 0; $i < count($testData); $i++) {
-	?>
-	
-	<?= $testData[$i] ?>
-	
-	
-	<!-- testDatabaseQuery  End of for loop -->
-	<?php
+
+			var_dump($testData[$id]);
 		}
 	?>
-	
-	<!-- jsonData -->
-	<p>jsonData :</p>
-	<?php
-		$jsonData = convertIntoJson($data);
-	?>
-	
-	<?= $jsonData ?>
+
 
 	
 </body>
