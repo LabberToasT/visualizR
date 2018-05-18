@@ -8,16 +8,33 @@ require_once 'functions.php';
   <title></title>
 </head>
 <body>
-  <?php
-    $sqlQuery = "SELECT * FROM berlin_elections;";
-    $result = $connection->query($sqlQuery);
-    if ($result) {
-      while ($row = $result->fetch_assoc()) {
-      echo $row["BezirkNr"];
-      }
-    }
-  ?>
-  <p>test : <?= testDatabaseQuery(); ?></p>
+	<?php
+		$data = testDatabaseQuery($connection);
+	?>
+	<!-- testDatabaseQuery -->
 
+	<p>testDatabaseQuery :</p> 
+	<?php
+		$testData = testDatabaseQuery($connection);
+		for ($i = 0; $i < count($testData); $i++) {
+	?>
+	
+	<?= $testData[$i] ?>
+	
+	
+	<!-- testDatabaseQuery  End of for loop -->
+	<?php
+		}
+	?>
+	
+	<!-- jsonData -->
+	<p>jsonData :</p>
+	<?php
+		$jsonData = convertIntoJson($data);
+	?>
+	
+	<?= $jsonData ?>
+
+	
 </body>
 </html>
