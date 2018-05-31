@@ -1,10 +1,10 @@
 <?php
-spl_autoload_register(function ($classname) {
+spl_autoload_register(function ($className) {
 
-    $filePath = 'src/' . str_replace('\\', '/', $classname) . '.php';
+    $filePath = 'src/' . str_replace('\\', '/', $className) . '.php';
     if (file_exists($filePath)) {
 
-        include($filePath);
+        include $filePath;
         return true;
     }
 

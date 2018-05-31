@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.rwdImageMaps.min.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="js/jquery.maphilight.js.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/jquery.rwdImageMaps.min.js"></script>
+        <script src="../js/custom.js"></script>
+        <script src="../js/jquery.maphilight.js.js"></script>
         <title>Berliner Wahlen visualizR</title>
     </head>
     <body>
@@ -29,7 +29,7 @@
                 <div class="col-md-12">
                     <div class="map-wrapper">
                         <!-- <img class="berlin-map" src="img/map.png"/> -->
-                        <img class="berlin-map" src="img/map.png" usemap="#image-map">
+                        <img class="berlin-map" src="../img/map.png" usemap="#image-map">
 
                         <map name="image-map">
                             <area data-maphilight='{"strokeColor":"0000ff","strokeWidth":5,"fillColor":"00ff00","fillOpacity":0.6}' target="_self" alt="Spandau" title="Spandau" href="#" coords="420,445,423,493,441,514,448,544,455,565,519,620,566,623,579,652,575,669,587,678,602,694,602,710,591,708,579,715,554,715,540,724,503,717,506,736,485,728,453,729,436,729,425,747,432,782,418,791,418,805,404,805,395,825,398,837,372,849,360,848,344,860,344,876,333,895,342,927,338,955,340,982,331,1022,209,1111,158,1123,148,1109,117,1075,128,1061,128,1037,119,1029,125,1012,116,1005,132,992,139,975,140,952,170,946,231,867,287,809,261,791,229,770,220,772,215,759,183,766,144,772,148,756,146,708,160,676,163,643,176,592,192,606,208,609,222,599,220,572,225,554,232,542,232,530,241,524,241,493,234,473,206,480,183,486,179,466,172,449,190,449,199,438,213,440,231,429,248,404,271,397,291,406,299,415,310,410,330,420,344,431,368,438,381,447,390,436" shape="poly">
