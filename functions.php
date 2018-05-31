@@ -6,11 +6,11 @@ if ($connection->connect_error) {
 }
 
 function testDistrictName($connection) {
-	return sqlQuery($connection,  "SELECT * FROM berlin_elections limit 5;");
+	return sqlQuery($connection, 'SELECT * FROM berlin_elections limit 5;');
 }
 
 function testElectorsProParty($connection) {
-	return sqlQuery($connection,  "select
+	return sqlQuery($connection, 'select
 bezirk_nr,
 bezirk_name,
 sum(gueltig) as gueltig,
@@ -69,7 +69,8 @@ sum(snelinski) as snelinski
 from
 berlin_elections
 group by
-bezirk_nr;");
+bezirk_nr;'
+    );
 }
 
 function sqlQuery($connection, $query) {
