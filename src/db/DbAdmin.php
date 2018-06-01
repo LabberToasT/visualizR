@@ -9,7 +9,6 @@ class DbAdmin
     
     public function __construct($dbName, $dbUser, $dbPass)
     {
-        
         if (!$this->myDb) {
             try {
                 
@@ -23,14 +22,14 @@ class DbAdmin
     }
     
     /**
-     * Methode, welche alle Wahlergebnisse aus der Datenbank zurückgibt.
+     * Methode, um alle Wahlergebnisse aus der Datenbank abzufragen.
      *
      * @return bool
      */
     public function getElectionResults()
     {
-        if($this->myDb) {
-        
+        if ($this->myDb) {
+            
             $command = 'select
 bezirk_nr,
 bezirk_name,
@@ -99,6 +98,23 @@ bezirk_nr;';
         } else {
             
             throw new \Exception('No active db connection!');
+        }
+    }
+    
+    /**
+     * Methode, welche einfach den ersten Eintrag der Datenbank zurückgibt.
+     *
+     * @return bool
+     */
+    public function getFirstDbRow()
+    {
+        if ($this->myDb) {
+            
+            $command = 'select * from berlin_elections limit 1;';
+            
+            $stmt = $this->myDb->prepare($command);
+            
+            return $stmt->execute();
         }
     }
 }

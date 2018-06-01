@@ -6,6 +6,7 @@ use Klein\Request;
 use Klein\Response;
 use Klein\ServiceProvider;
 use template\Template;
+use api\GetFirstDBRow;
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once 'autoloader.php';
@@ -18,9 +19,27 @@ $klein->respond(function (Request $request, Response $response, ServiceProvider 
     $service->db = $conn;
 });
 
+//#######################
+//#### API Callbacks ####
+//#######################
+
+$apiCallback = function(Request $request, Response $response, ServiceProvider $service) {
+    
+    $getFirstDbRow = new GetFirstDBRow($request);
+    $result = $getFirstDbRow->getFirstDbRow($service);
+    
+    $response->append($result);
+};
+$klein->respond('GET', '/api', $apiCallback);
+
+//#######################
+//######## Pages ########
+//#######################
+
 $testCallback = function(Request $request, Response $response, ServiceProvider $service) {
 
-    return 'Hallo ich bin auch da';
+    $testPage = new Template('views/testHtmlFile.html');
+    $response->append($testPage->render());
 };
 $klein->respond(['GET', 'POST'], '/test', $testCallback);
 
