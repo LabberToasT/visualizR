@@ -4,7 +4,6 @@ namespace db;
 
 class DbAdmin
 {
-    
     protected $myDb = null;
     
     public function __construct($dbName, $dbUser, $dbPass)
@@ -23,8 +22,6 @@ class DbAdmin
     
     /**
      * Methode, um alle Wahlergebnisse aus der Datenbank abzufragen.
-     *
-     * @return bool
      */
     public function getElectionResults()
     {
@@ -92,7 +89,9 @@ group by
 bezirk_nr;';
             
             $stmt = $this->myDb->prepare($command);
-            $result = $stmt->execute();
+            $stmt->execute();
+            
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             
             return $result;
         } else {

@@ -19,6 +19,7 @@ $klein->respond(function (Request $request, Response $response, ServiceProvider 
     $service->db = $conn;
 });
 
+
 //#######################
 //#### API Callbacks ####
 //#######################
@@ -30,7 +31,20 @@ $apiCallback = function(Request $request, Response $response, ServiceProvider $s
     
     $response->append($result);
 };
-$klein->respond('GET', '/api', $apiCallback);
+$klein->respond('GET', '/api/first_row', $apiCallback);
+
+$allElectionResultsApiCallback = function(Request $request, Response $response, ServiceProvider $service) {
+    
+    
+    /** @var DbAdmin $conn */
+    $conn = $service->db;
+    
+    $result = $conn->getElectionResults();
+    
+    $response->append(json_encode($result));
+};
+$klein->respond('GET', '/api/all_election_results', $allElectionResultsApiCallback);
+
 
 //#######################
 //######## Pages ########
@@ -45,7 +59,7 @@ $klein->respond(['GET', 'POST'], '/test', $testCallback);
 
 $indexCallback = function (Request $request, Response $response, ServiceProvider $service) {
     
-    $defaultPage = new Template('views/berlinMap.php');
+    $defaultPage = new Template('views/berlinMap.html');
     $response->append($defaultPage->render());
 };
 $klein->respond('GET', '/', $indexCallback);
