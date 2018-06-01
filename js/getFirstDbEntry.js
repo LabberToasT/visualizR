@@ -2,7 +2,7 @@
 //und somit nicht jedes mal die ganze seite vom server anzufragen
 
 function queryData() {
-
+//alternative möglichkeit über javascript anfragen an den server zu senden ohne JQuery
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && 200 == this.status) {
@@ -15,7 +15,7 @@ function queryData() {
 }
 
 function test() {
-
+//möglichkeit um mit JQuery anfragen an den server zu senden
     $.ajax({
         'dataType': 'JSON',
         'method': 'POST',
