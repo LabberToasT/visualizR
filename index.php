@@ -43,7 +43,7 @@ $allElectionResultsApiCallback = function(Request $request, Response $response, 
     
     $response->append(json_encode($result));
 };
-$klein->respond('GET', '/api/all_election_results', $allElectionResultsApiCallback);
+$klein->respond('POST', '/api/all_election_results', $allElectionResultsApiCallback);
 
 
 //#######################

@@ -14,7 +14,7 @@ class Template
      *
      * @param $path
      */
-    function __construct($path)
+    public function __construct($path)
     {
         $this->data['path'] = $path;
     }
@@ -23,9 +23,8 @@ class Template
      * @param $name
      * @param $value
      */
-    function set($name, $value)
+    public function set($name, $value)
     {
-
         $this->data[$name] = $value;
     }
 
@@ -35,7 +34,7 @@ class Template
      * @return mixed
      * @throws Exception
      */
-    function get($name)
+    public function get($name)
     {
         if (isset($this->data[$name])) {
 
@@ -49,12 +48,11 @@ class Template
     /**
      * @return string
      */
-    function render()
+    public function render()
     {
-
         ob_start();
-        include($this->data['path']);
-        $content = ob_get_clean();
-        return $content;
+        include $this->data['path'];
+        
+        return ob_get_clean();
     }
 }
