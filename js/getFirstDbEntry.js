@@ -10,7 +10,7 @@ function queryData() {
             console.log(this.responseText);
         }
     };
-    xmlhttp.open("GET", "api", true);
+    xmlhttp.open("POST", "/api/all_election_results", true);
     xmlhttp.send();
 }
 
@@ -29,7 +29,7 @@ function test() {
         'success': function(data) {
             //funktion die aufgerufen wird, wenn die anfrage verarbeitet wurde und kein fehler ausgegeben wurde
             //die rückgabe des servers ist in der variable "data" gespeichert
-            alert('Super hat funktioniert!');
+            console.log(data);
         },
         'error': function() {
             //funktion die aufgerufen wurde, wenn ein fehler bei der verabeitung auf dem server aufgetreten ist
