@@ -4,4 +4,7 @@ $(document).ready(function(e) {
     $(function() {
         $('.berlin-map').maphilight();
     });
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
 });
