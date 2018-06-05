@@ -25,3 +25,12 @@ ul.filters {
 area { 
     display: block;
 }
+
+svg {
+    cursor: pointer;
+}
+
+.popover-content .popover-list {
+    list-style: none;
+    padding-left: 0;
+}
