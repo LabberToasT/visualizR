@@ -9,6 +9,6 @@ $CONFIG = [
     'dev' => [
         'dbName'    => 'berlin_elections',
         'user'      => 'root',
-        'password'  => 'root'
+        'password'  => ''
     ],
 ];

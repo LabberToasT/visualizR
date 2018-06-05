@@ -21,7 +21,7 @@ $klein->respond(function (Request $request, Response $response, ServiceProvider 
 
 
 //#######################
-//#### API Callbacks ####
+//#### API Callbacks / In den Controller schieben ####
 //#######################
 
 $apiCallback = function(Request $request, Response $response, ServiceProvider $service) {
@@ -33,9 +33,10 @@ $apiCallback = function(Request $request, Response $response, ServiceProvider $s
 };
 $klein->respond('GET', '/api/first_row', $apiCallback);
 
+
+// Test if controller AllResultsControlle.php works by commenting this part (keep the klein->respond here?)
 $allElectionResultsApiCallback = function(Request $request, Response $response, ServiceProvider $service) {
-    
-    
+
     /** @var DbAdmin $conn */
     $conn = $service->db;
     
@@ -43,6 +44,7 @@ $allElectionResultsApiCallback = function(Request $request, Response $response, 
     
     $response->append(json_encode($result));
 };
+// test for controller class: $allElectionResultsApiCallback = new AllResultsController();
 $klein->respond('POST', '/api/all_election_results', $allElectionResultsApiCallback);
 
 
