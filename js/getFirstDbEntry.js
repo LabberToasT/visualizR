@@ -19,7 +19,7 @@ function test() {
     $.ajax({
         'dataType': 'JSON',
         'method': 'POST',
-        'url': "http://localhost:8888/api/all_election_results",
+        'url': "http://localhost/api/all_election_results",
         'data': {
             //hier kann man die post parameter übergeben, welche dann im code mittels $request->paramPost()->get('PARAMETER_NAME') ausgelesen werden können
         },
@@ -30,6 +30,7 @@ function test() {
             //funktion die aufgerufen wird, wenn die anfrage verarbeitet wurde und kein fehler ausgegeben wurde
             //die rückgabe des servers ist in der variable "data" gespeichert
             console.log(data);
+            return data;
         },
         'error': function() {
             //funktion die aufgerufen wurde, wenn ein fehler bei der verabeitung auf dem server aufgetreten ist
