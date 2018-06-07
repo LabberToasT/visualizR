@@ -8,6 +8,7 @@ function queryData() {
         if (this.readyState == 4 && 200 == this.status) {
 
             console.log(this.responseText);
+            return this.responseText;
         }
     };
     xmlhttp.open("POST", "/api/all_election_results", true);
@@ -29,7 +30,8 @@ function test() {
         'success': function(data) {
             //funktion die aufgerufen wird, wenn die anfrage verarbeitet wurde und kein fehler ausgegeben wurde
             //die rückgabe des servers ist in der variable "data" gespeichert
-            console.log(data);
+            console.log(data); 
+            console.log(data[0]['bezirk_name']);
             return data;
         },
         'error': function() {

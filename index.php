@@ -45,7 +45,7 @@ $allElectionResultsApiCallback = function(Request $request, Response $response, 
     $response->append(json_encode($result));
 };
 // test for controller class: $allElectionResultsApiCallback = new AllResultsController();
-$klein->respond('POST', '/api/all_election_results', $allElectionResultsApiCallback);
+$klein->respond(['POST', 'GET'], '/api/all_election_results', $allElectionResultsApiCallback);
 
 
 //#######################
