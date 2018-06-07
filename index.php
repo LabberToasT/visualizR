@@ -12,19 +12,20 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once 'autoloader.php';
 
 $klein = new \Klein\Klein();
-$klein->respond(function (Request $request, Response $response, ServiceProvider $service) use ($CONFIG) {
-
-    $dbConfig = $CONFIG[ENV];
-    $conn = new DbAdmin($dbConfig['dbName'], $dbConfig['user'], $dbConfig['password']);
-    $service->db = $conn;
-});
-
+$klein->respond(
+    function (Request $request, Response $response, ServiceProvider $service) use ($CONFIG) {
+        
+        $dbConfig = $CONFIG[ENV];
+        $conn = new DbAdmin($dbConfig['dbName'], $dbConfig['user'], $dbConfig['password']);
+        $service->db = $conn;
+    }
+);
 
 //#######################
 //#### API Callbacks ####
 //#######################
 
-$apiCallback = function(Request $request, Response $response, ServiceProvider $service) {
+$apiCallback = function (Request $request, Response $response, ServiceProvider $service) {
     
     $getFirstDbRow = new GetFirstDBRow($request);
     $result = $getFirstDbRow->getFirstDbRow($service);
@@ -33,7 +34,7 @@ $apiCallback = function(Request $request, Response $response, ServiceProvider $s
 };
 $klein->respond('GET', '/api/first_row', $apiCallback);
 
-$allElectionResultsApiCallback = function(Request $request, Response $response, ServiceProvider $service) {
+$allElectionResultsApiCallback = function (Request $request, Response $response, ServiceProvider $service) {
     
     
     /** @var DbAdmin $conn */
@@ -43,15 +44,26 @@ $allElectionResultsApiCallback = function(Request $request, Response $response, 
     
     $response->append(json_encode($result));
 };
-$klein->respond('POST', '/api/all_election_results', $allElectionResultsApiCallback);
+$klein->respond(['GET', 'POST'], '/api/all_election_results', $allElectionResultsApiCallback);
 
+$districtElectionResultsApiCallback = function (Request $request, Response $response, ServiceProvider $service) {
+    
+    /** @var DbAdmin $conn */
+    $conn = $service->db;
+    
+    $requestedDistrict = $request->paramsPost()->get('request_district');
+    $result = $conn->getResultsForOneDistrict($requestedDistrict);
+    
+    $response->append(json_encode($result));
+};
+$klein->respond(['GET', 'POST'], '/api/district_election_results', $districtElectionResultsApiCallback);
 
 //#######################
 //######## Pages ########
 //#######################
 
-$testCallback = function(Request $request, Response $response, ServiceProvider $service) {
-
+$testCallback = function (Request $request, Response $response, ServiceProvider $service) {
+    
     $testPage = new Template('views/testHtmlFile.html');
     $response->append($testPage->render());
 };
