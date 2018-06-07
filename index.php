@@ -12,17 +12,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once 'autoloader.php';
 
 $klein = new \Klein\Klein();
-$klein->respond(
-    function (Request $request, Response $response, ServiceProvider $service) use ($CONFIG) {
-        
-        $dbConfig = $CONFIG[ENV];
-        $conn = new DbAdmin($dbConfig['dbName'], $dbConfig['user'], $dbConfig['password']);
-        $service->db = $conn;
-    }
-);
+$klein->respond(function (Request $request, Response $response, ServiceProvider $service) use ($CONFIG) {
+
+    $dbConfig = $CONFIG[ENV];
+    $conn = new DbAdmin($dbConfig['dbName'], $dbConfig['user'], $dbConfig['password']);
+    $service->db = $conn;
+});
+
 
 //#######################
-//#### API Callbacks ####
+//#### API Callbacks / In den Controller schieben ####
 //#######################
 
 $apiCallback = function (Request $request, Response $response, ServiceProvider $service) {
@@ -34,9 +33,9 @@ $apiCallback = function (Request $request, Response $response, ServiceProvider $
 };
 $klein->respond('GET', '/api/first_row', $apiCallback);
 
+
+// Test if controller AllResultsControlle.php works by commenting this part (keep the klein->respond here?)
 $allElectionResultsApiCallback = function (Request $request, Response $response, ServiceProvider $service) {
-    
-    
     /** @var DbAdmin $conn */
     $conn = $service->db;
     
@@ -44,6 +43,7 @@ $allElectionResultsApiCallback = function (Request $request, Response $response,
     
     $response->append(json_encode($result));
 };
+// test for controller class: $allElectionResultsApiCallback = new AllResultsController();
 $klein->respond(['GET', 'POST'], '/api/all_election_results', $allElectionResultsApiCallback);
 
 $districtElectionResultsApiCallback = function (Request $request, Response $response, ServiceProvider $service) {
@@ -62,8 +62,8 @@ $klein->respond(['GET', 'POST'], '/api/district_election_results', $districtElec
 //######## Pages ########
 //#######################
 
-$testCallback = function (Request $request, Response $response, ServiceProvider $service) {
-    
+$testCallback = function(Request $request, Response $response, ServiceProvider $service) {
+
     $testPage = new Template('views/testHtmlFile.html');
     $response->append($testPage->render());
 };
