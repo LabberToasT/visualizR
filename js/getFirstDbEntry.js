@@ -15,7 +15,7 @@ function queryData() {
     xmlhttp.send();
 }
 
-function test() {
+function ajaxCall() {
 //möglichkeit um mit JQuery anfragen an den server zu senden
     $.ajax({
         'dataType': 'JSON',
@@ -31,7 +31,17 @@ function test() {
             //funktion die aufgerufen wird, wenn die anfrage verarbeitet wurde und kein fehler ausgegeben wurde
             //die rückgabe des servers ist in der variable "data" gespeichert
             console.log(data); 
-            console.log(data[0]['bezirk_name']);
+            var nMitte = data[0]['bezirk_name'];
+            var waeMitte = data[0]['gueltig'];
+            var spdMitte = data[0]['spd'];
+            var cduMitte = data[0]['cdu'];
+            var linkeMitte = data[0]['die_linke'];
+            var afdMitte = data[0]['afd'];
+            var dieParteiMitte = data[0]['die_partei'];
+            var fdpMitte = data[0]['fdp'];
+            var piratenMitte = data[0]['piraten'];
+            var grueneMitte = data[0]['gruene'];              
+            $('#mitte').attr('data-content','<div class="popover-content"><ul class="popover-list"><li>Gültige Wähler: ' + waeMitte + '</li><li>SPD: ' + spdMitte + '</li><li>CDU: ' + cduMitte + '</li><li>FDP: ' + fdpMitte + '</li><li>Piraten: ' + piratenMitte + '</li><li>Grüne: ' + grueneMitte + '</li><li>AFD: ' + afdMitte + '</li></ul></div>'); 
             return data;
         },
         'error': function() {

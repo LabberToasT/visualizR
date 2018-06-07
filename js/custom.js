@@ -1,6 +1,6 @@
-$(document).ready(function(e) {  
-       
-    var data = test();
+$(document).ready(function(e) {   
+
+    var data = ajaxCall();   
     
     $('img[usemap]').rwdImageMaps();
     
@@ -11,19 +11,21 @@ $(document).ready(function(e) {
         $('[data-toggle="popover"]').popover()
     });
     var waehlerzahl = 12;
-    $('#steglitz-zehlendorf').attr('data-html', 'true').attr('data-content','<div class="popover-content"><ul class="popover-list"><li>' + waehlerzahl + '</li></ul></div>');    
-    
-    
-    
-    function test123(_callback) {
-        var data = test();
-        _callback(data);
-    };
-    
-    function test456(){
-        test123(function(data){
-            console.log(data[0]['bezirk_name']);
-        });
-    };
-    
+    $('#steglitz-zehlendorf').attr('data-html', 'true').attr('data-content','<div class="popover-content"><ul class="popover-list"><li>' + waehlerzahl + '</li><li>' + waehlerzahl + '</li></ul></div>');    
+    $('#mitte').attr('data-html', 'true');
+
+    $('input').click(function() {
+        if($('#parteifilter1').is(':checked')) { 
+            $('#mitte').css('fill','grey')
+        }
+        if($('#parteifilter2').is(':checked')) { 
+            $('#friedrichshain-kreuzberg').css('fill','orange')
+        }
+        if($('#parteifilter3').is(':checked')) { 
+            $('#pankow').css('fill','blue')
+        }
+        if($('#parteifilter4').is(':checked')) { 
+            $('#charlottenburg-wilmersdorf').css('fill','red')
+        }
+    });
 });
