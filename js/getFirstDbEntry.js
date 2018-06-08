@@ -30,14 +30,13 @@ function ajaxCall() {
         'success': function(data) {
             //funktion die aufgerufen wird, wenn die anfrage verarbeitet wurde und kein fehler ausgegeben wurde
             //die rückgabe des servers ist in der variable "data" gespeichert
-            
+            console.log(data); 
             var i;
             var liste = "";
             var element;
             for (i = 0; i < data.length; i++) {
                 for (element in data[i]) {
                     liste += '<li>' + element + ': ' + data[i][element] + '</li>';
-                    console.log(data[i][element]);
                 }
                 $('#' + i).attr('data-content','<div class="popover-content"><ul class="popover-list">' + liste + '</ul></div>');
                 liste = "";
