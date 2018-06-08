@@ -10,22 +10,21 @@ $(document).ready(function(e) {
     $(function () {
         $('[data-toggle="popover"]').popover()
     });
-    var waehlerzahl = 12;
-    $('#steglitz-zehlendorf').attr('data-html', 'true').attr('data-content','<div class="popover-content"><ul class="popover-list"><li>' + waehlerzahl + '</li><li>' + waehlerzahl + '</li></ul></div>');    
-    $('#mitte').attr('data-html', 'true');
 
     $('input').click(function() {
         if($('#parteifilter1').is(':checked')) { 
-            $('#mitte').css('fill','grey')
+            $('#0').css('fill','grey')
+        } else {
+            $('#0').css('fill','#28c57a')
         }
         if($('#parteifilter2').is(':checked')) { 
-            $('#friedrichshain-kreuzberg').css('fill','orange')
+            $('#1').css('fill','orange')
         }
         if($('#parteifilter3').is(':checked')) { 
-            $('#pankow').css('fill','blue')
+            $('#2').css('fill','blue')
         }
         if($('#parteifilter4').is(':checked')) { 
-            $('#charlottenburg-wilmersdorf').css('fill','red')
+            $('#3').css('fill','red')
         }
     });
 });
