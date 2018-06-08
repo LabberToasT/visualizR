@@ -12,13 +12,13 @@ function getDataForParty(party) {
             //funktion die vor dem senden der anfrage ausgeführt wird
         },
         'success': function(districtData) {
-
+            
             console.log(districtData);
         },
         'error': function() {
             //funktion die aufgerufen wurde, wenn ein fehler bei der verabeitung auf dem server aufgetreten ist
             //könnte man zum beispiel mit dem folgenden snipped generisch abgefangen werden:
-            alert('Sorry a error occured!');
+            alert('Sorry an error occured!');
         },
         'complete': function() {
             //funktion die augerufen wird, wenn response oder error handling abgeschlossen wurde

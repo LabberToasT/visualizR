@@ -24,7 +24,7 @@ class DbAdmin
 		
 		if($this->myDb) {
 			
-			$command = 'SELECT SUM(:party) FROM berlin_elections;';
+			$command = 'SELECT SUM(:party) FROM berlin_elections group by bezirk_nr;';
 			$stmt = $this->myDb->prepare($command);
 			$stmt->bindParam('party', $party);
             $stmt->execute();

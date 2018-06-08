@@ -39,7 +39,7 @@ function ajaxCall() {
                 for (element in data[i]) {
                     current++;
                     //ToDo: entfernen
-                    if (current == 7) {
+                    if (current == 9) {
                         break;
                     }
                     liste += '<li>' + element + ': ' + data[i][element] + '</li>';
