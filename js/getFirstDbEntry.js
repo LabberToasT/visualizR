@@ -35,7 +35,13 @@ function ajaxCall() {
             var liste = "";
             var element;
             for (i = 0; i < data.length; i++) {
+                var current = 0;
                 for (element in data[i]) {
+                    current++;
+                    //ToDo: entfernen
+                    if (current == 7) {
+                        break;
+                    }
                     liste += '<li>' + element + ': ' + data[i][element] + '</li>';
                 }
                 $('#' + i).attr('data-content','<div class="popover-content"><ul class="popover-list">' + liste + '</ul></div>');
