@@ -1,4 +1,4 @@
-//Das ist ein beispiel, um zu zeigen, dass man auch dynmaisch über javascript neue daten vom server abfragen kann
+﻿//Das ist ein beispiel, um zu zeigen, dass man auch dynmaisch über javascript neue daten vom server abfragen kann
 //und somit nicht jedes mal die ganze seite vom server anzufragen
 
 function queryData() {
@@ -19,7 +19,7 @@ function ajaxCall() {
     $.ajax({
         'dataType': 'JSON',
         'method': 'POST',
-        'url': "http://localhost:8888/api/all_election_results",//todo remove wrong port
+        'url': "http://localhost/api/all_election_results",
         'data': {
         },
         'beforeSend': function() {
