@@ -24,11 +24,10 @@ class DbAdmin
         
         if($this->myDb) {
             
-            $command = 'SELECT SUM(:party) FROM berlin_elections group by bezirk_nr;';
-            $stmt = $this->myDb->prepare($command);
-            $stmt->bindParam('party', $party);
-            $stmt->execute();
-            
+            //todo replace string chaining with bindParam statement
+            $command = 'SELECT SUM(' . $party . ')' . $party . ' FROM berlin_elections group by bezirk_nr;';
+            $stmt = $this->myDb->query($command);
+    
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
             

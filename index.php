@@ -38,7 +38,7 @@ $onePartyElectionResultsApiCallback = function(Request $request, Response $respo
     /** @var DbAdmin $conn */
     $conn = $service->db;
     
-    $result = $conn->getElectionDataForOneParty($request->paramsPost()->get('request_party'));
+    $result = $conn->getElectionDataForOneParty('spd');
     
     $response->append(json_encode($result));
 };
@@ -56,7 +56,7 @@ $allElectionResultsApiCallback = function(Request $request, Response $response, 
     $response->append(json_encode($result));
 };
 // test for controller class: $allElectionResultsApiCallback = new AllResultsController();
-$klein->respond(['POST', 'GET'], '/api/all_election_results', $allElectionResultsApiCallback);
+$klein->respond(['GET', 'POST'], '/api/all_election_results', $allElectionResultsApiCallback);
 
 
 //#######################
