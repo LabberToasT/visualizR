@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace db;
 
@@ -19,22 +19,22 @@ class DbAdmin
             }
         }
     }
-	
-	public function getElectionDataForOneParty($party) {
-		
-		if($this->myDb) {
-			
-			$command = 'SELECT SUM(:party) FROM berlin_elections group by bezirk_nr;';
-			$stmt = $this->myDb->prepare($command);
-			$stmt->bindParam('party', $party);
+    
+    public function getElectionDataForOneParty($party) {
+        
+        if($this->myDb) {
+            
+            $command = 'SELECT SUM(:party) FROM berlin_elections group by bezirk_nr;';
+            $stmt = $this->myDb->prepare($command);
+            $stmt->bindParam('party', $party);
             $stmt->execute();
             
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-		} else {
-			
-			throw new \Exception('No active db connection!');
-		}
-	}
+        } else {
+            
+            throw new \Exception('No active db connection!');
+        }
+    }
     
     /**
      * Methode, um alle Wahlergebnisse aus der Datenbank abzufragen.
@@ -100,7 +100,7 @@ SUM(snelinski) as snelinski
 from
 berlin_elections
 group by
-bezirk_nr ;';
+bezirk_nr, ASC;';
             
             $stmt = $this->myDb->prepare($command);
             $stmt->execute();
