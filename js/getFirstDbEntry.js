@@ -41,7 +41,7 @@ function ajaxCall() {
             var fdpMitte = data[0]['fdp'];
             var piratenMitte = data[0]['piraten'];
             var grueneMitte = data[0]['gruene'];              
-            $('#mitte').attr('data-content','<div class="popover-content"><ul class="popover-list"><li>Gültige Wähler: ' + waeMitte + '</li><li>SPD: ' + spdMitte + '</li><li>CDU: ' + cduMitte + '</li><li>FDP: ' + fdpMitte + '</li><li>Piraten: ' + piratenMitte + '</li><li>Grüne: ' + grueneMitte + '</li><li>AFD: ' + afdMitte + '</li></ul></div>'); 
+            $('#mitte').attr('data-content','<div class="popover-content"><ul class="popover-list"><li>Gültige Stimmen: ' + waeMitte + '</li><li>SPD: ' + spdMitte + '</li><li>CDU: ' + cduMitte + '</li><li>FDP: ' + fdpMitte + '</li><li>Piraten: ' + piratenMitte + '</li><li>Grüne: ' + grueneMitte + '</li><li>AFD: ' + afdMitte + '</li></ul></div>'); 
             return data;
         },
         'error': function() {
