@@ -41,7 +41,7 @@ $onePartyElectionResultsApiCallback = function(Request $request, Response $respo
     $result = $conn->getElectionDataForOneParty($request->paramsPost()->get('request_party'));
     
     $response->append(json_encode($result));
-}
+};
 $klein->respond('POST', 'api/party_election_results', $onePartyElectionResultsApiCallback);
 
 

@@ -22,14 +22,17 @@ class DbAdmin
 	
 	public function getElectionDataForOneParty($party) {
 		
-		if(this->myDb) {
+		if($this->myDb) {
 			
 			$command = 'SELECT SUM(:party) FROM berlin_elections;';
 			$stmt = $this->myDb->prepare($command);
 			$stmt->bindParam('party', $party);
-			$stmt->execute();
+            $stmt->execute();
+            
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		} else {
 			
-			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+			throw new \Exception('No active db connection!')
 		}
 	}
     
