@@ -32,7 +32,7 @@ class DbAdmin
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 		} else {
 			
-			throw new \Exception('No active db connection!')
+			throw new \Exception('No active db connection!');
 		}
 	}
     

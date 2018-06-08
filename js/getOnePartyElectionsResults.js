@@ -6,10 +6,10 @@ function getDataForParty(party) {
         'url': "http://localhost:8888/api/party_election_results",
         'data': {
             //hier kann man die post parameter übergeben, welche dann im code mittels $request->paramPost()->get('PARAMETER_NAME') ausgelesen werden können
-            request_party: district
+            request_party: party
         },
         'beforeSend': function() {
-            //funktion die vor dem senden der anfrage ausgefüht wird
+            //funktion die vor dem senden der anfrage ausgeführt wird
         },
         'success': function(districtData) {
 

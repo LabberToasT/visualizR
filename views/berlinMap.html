@@ -11,6 +11,7 @@
 	<script src="../js/jquery.rwdImageMaps.min.js"></script>
 	<script src="../js/jquery.maphilight.js.js"></script>
 	<script src="../js/getFirstDbEntry.js"></script>
+    <script src="../js/getOnePartyElectionsResults.js"></script>
 	<script src="../js/custom.js"></script>
 	<title>Berliner Wahlen visualizR</title>
 </head>
@@ -414,7 +415,7 @@ data-toggle="popover" title="Treptow-Köpenick"
 			<ul class="filters">
 				<li>
 					<input type="radio" value="1" id="parteifilter1" name="partei"/>
-					<label for="parteifilter1">SPD</label>
+                    <label for="parteifilter1" onclick="getDataForParty("SPD")">SPD</label>
 				</li>
 				<li>
 					<input type="radio" value="2" id="parteifilter2" name="partei"/>
@@ -449,12 +450,12 @@ data-toggle="popover" title="Treptow-Köpenick"
 		<div class="col-md-3">
 			<ul class="filters">
 				<li>
-					<input type="radio" value="7" id="filter7" name="partei"/>
-					<label for="filter7">Piraten</label>
+                    <input type="radio" value="7" id="parteifilter7" name="partei"/>
+                    <label for="parteifilter7">Piraten</label>
 				</li>
 				<li>
-					<input type="radio" value="8" id="filter8" name="partei"/>
-					<label for="filter8">NPD</label>
+                    <input type="radio" value="8" id="parteifilter8" name="partei"/>
+                    <label for="parteifilter8">NPD</label>
 				</li>
 			</ul>
 		</div>
