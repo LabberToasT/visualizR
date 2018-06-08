@@ -7,8 +7,8 @@ define('ENV', 'dev');
 
 $CONFIG = [
     'dev' => [
-        'dbName'    => 'berlin_elections',
+        'dbName'    => 'visualizr',
         'user'      => 'root',
-        'password'  => ''
+        'password'  => 'root'
     ],
 ];

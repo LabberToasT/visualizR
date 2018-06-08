@@ -20,6 +20,21 @@ class DbAdmin
         }
     }
     
+    public function getElectionDataForOneParty($party) {
+        
+        if($this->myDb) {
+            
+            //todo replace string chaining with bindParam statement
+            $command = 'SELECT SUM(' . $party . ')' . $party . ' FROM berlin_elections group by bezirk_nr;';
+            $stmt = $this->myDb->query($command);
+    
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } else {
+            
+            throw new \Exception('No active db connection!');
+        }
+    }
+    
     /**
      * Methode, um alle Wahlergebnisse aus der Datenbank abzufragen.
      */
@@ -84,7 +99,7 @@ SUM(snelinski) as snelinski
 from
 berlin_elections
 group by
-bezirk_nr, ASC;';
+bezirk_nr;';
             
             $stmt = $this->myDb->prepare($command);
             $stmt->execute();
@@ -129,8 +144,7 @@ SUM(beckmann) as Beckmann,
 SUM(snelinski) as Snelinski
 FROM
 berlin_elections
-WHERE bezirk_name = :bezirkName
-ORDER BY DESC;';
+WHERE bezirk_name = :bezirkName ;';
             
             $stmt = $this->myDb->prepare($command);
             $stmt->bindParam(':bezirkName', $district);
