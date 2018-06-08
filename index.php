@@ -33,6 +33,17 @@ $apiCallback = function(Request $request, Response $response, ServiceProvider $s
 };
 $klein->respond('GET', '/api/first_row', $apiCallback);
 
+$onePartyElectionResultsApiCallback = function(Request $request, Response $response, ServiceProvider $service) {
+
+    /** @var DbAdmin $conn */
+    $conn = $service->db;
+    
+    $result = $conn->getElectionDataForOneParty($request->paramsPost()->get('request_party'));
+    
+    $response->append(json_encode($result));
+}
+$klein->respond('POST', 'api/party_election_results', $onePartyElectionResultsApiCallback);
+
 
 // Test if controller AllResultsControlle.php works by commenting this part (keep the klein->respond here?)
 $allElectionResultsApiCallback = function(Request $request, Response $response, ServiceProvider $service) {

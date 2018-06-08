@@ -19,6 +19,19 @@ class DbAdmin
             }
         }
     }
+	
+	public function getElectionDataForOneParty($party) {
+		
+		if(this->myDb) {
+			
+			$command = 'SELECT SUM(:party) FROM berlin_elections;';
+			$stmt = $this->myDb->prepare($command);
+			$stmt->bindParam('party', $party);
+			$stmt->execute();
+			
+			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		}
+	}
     
     /**
      * Methode, um alle Wahlergebnisse aus der Datenbank abzufragen.
