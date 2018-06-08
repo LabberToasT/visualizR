@@ -3,7 +3,7 @@ function getDataForParty(party) {
     $.ajax({
         'dataType': 'JSON',
         'method': 'POST',
-        'url': "http://localhost:8888/api/party_election_results",
+        'url': "http://localhost:8888/api/party_election_results",// todo remove wrong port
         'data': {
             //hier kann man die post parameter übergeben, welche dann im code mittels $request->paramPost()->get('PARAMETER_NAME') ausgelesen werden können
             request_party: party

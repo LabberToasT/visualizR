@@ -99,7 +99,7 @@ SUM(snelinski) as snelinski
 from
 berlin_elections
 group by
-bezirk_nr, ASC;';
+bezirk_nr;';
             
             $stmt = $this->myDb->prepare($command);
             $stmt->execute();
@@ -144,8 +144,7 @@ SUM(beckmann) as Beckmann,
 SUM(snelinski) as Snelinski
 FROM
 berlin_elections
-WHERE bezirk_name = :bezirkName
-ORDER BY DESC;';
+WHERE bezirk_name = :bezirkName ;';
             
             $stmt = $this->myDb->prepare($command);
             $stmt->bindParam(':bezirkName', $district);

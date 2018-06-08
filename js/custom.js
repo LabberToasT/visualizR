@@ -1,9 +1,9 @@
 $(document).ready(function(e) {   
 
-    var data = ajaxCall();   
+    ajaxCall();
     
     $('img[usemap]').rwdImageMaps();
-    
+
     $(function() {
         $('.berlin-map').maphilight();
     });

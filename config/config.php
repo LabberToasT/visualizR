@@ -9,6 +9,6 @@ $CONFIG = [
     'dev' => [
         'dbName'    => 'visualizr',
         'user'      => 'root',
-        'password'  => ''
+        'password'  => 'root'
     ],
 ];
