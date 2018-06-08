@@ -42,7 +42,7 @@ $onePartyElectionResultsApiCallback = function(Request $request, Response $respo
     
     $response->append(json_encode($result));
 };
-$klein->respond('POST', 'api/party_election_results', $onePartyElectionResultsApiCallback);
+$klein->respond(['GET', 'POST'], '/api/party_election_results', $onePartyElectionResultsApiCallback);
 
 
 // Test if controller AllResultsControlle.php works by commenting this part (keep the klein->respond here?)
