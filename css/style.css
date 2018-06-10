@@ -1,5 +1,5 @@
 #header {
-    margin: 30px 0;
+    margin: 10px 0;
 }
 
 #header h1.title {
@@ -22,14 +22,6 @@ ul.filters {
     margin: 30px 0;
 }
 
-area { 
-    display: block;
-}
-
-svg {
-    cursor: pointer;
-}
-
 .popover-content .popover-list {
     list-style: none;
     padding-left: 0;
@@ -38,4 +30,13 @@ svg {
 path {
     -webkit-transition: fill 2s; /* Safari */
     transition: fill 1s;
+    cursor: pointer;
+}
+
+.popover {
+    border-radius: 0;
+}
+
+.parteifilter-wrapper {
+    margin-bottom: 45px;
 }
