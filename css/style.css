@@ -34,3 +34,8 @@ svg {
     list-style: none;
     padding-left: 0;
 }
+
+path {
+    -webkit-transition: fill 2s; /* Safari */
+    transition: fill 1s;
+}

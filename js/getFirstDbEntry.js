@@ -40,7 +40,8 @@ function ajaxCall() {
                 }
                 $('#' + i).attr('data-content','<div class="popover-content"><ul class="popover-list">' + liste + '</ul></div>');
                 liste = "";
-            }  
+            }
+            console.log(data);  
             return data;
         },
         'error': function() {
