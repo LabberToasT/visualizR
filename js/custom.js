@@ -1,16 +1,15 @@
+//wait for the document to be loaded and then execute our scripts
 $(document).ready(function(e) {   
 
+    //function to get our data from the database
     ajaxCall();
-    
-    $('img[usemap]').rwdImageMaps();
 
-    $(function() {
-        $('.berlin-map').maphilight();
-    });
+    //initialize bootstrap popover on all elements with the data-toggle popover attribute
     $(function () {
         $('[data-toggle="popover"]').popover()
     });
 
+    //fill every district with correct party colors in different opacities to show the value of each district for the chosen party
     $('input').click(function() {
         if($('#parteifilter1').is(':checked')) { 
             $('#0').css('fill','rgba(255,0,0,0.45)')
@@ -26,7 +25,7 @@ $(document).ready(function(e) {
             $('#10').css('fill','rgba(255,0,0,0.3)')
             $('#11').css('fill','rgba(255,0,0,0.4)')            
         }
-        if($('#parteifilter2').is(':checked')) { 
+        if($('#parteifilter2').is(':checked')) {
             $('#0').css('fill','rgba(0,0,0,0.3)')
             $('#1').css('fill','rgba(0,0,0,0.25)')
             $('#2').css('fill','rgba(0,0,0,0.85)') 
