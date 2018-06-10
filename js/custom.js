@@ -10,6 +10,10 @@ $(document).ready(function(e) {
     });
 
     //fill every district with correct party colors in different opacities to show the value of each district for the chosen party
+    //ids for the corresponding districts:
+    //0 = Mitte, 1 = Friedrichshain-Kreuzberg, 2 = Pankow, 3 = Charlottenburg-Wilmersdorf, 4 = Spandau, 5 = Steglitz-Zehlendorf
+    //6 = Tempelhof-Schöneberg, 7 = Neukölln, 8 = Treptow-Köpenick, 9 = Marzahn-Hellersdorf, 10 = Lichtenberg, 11 = Reinickendorf
+    
     $('input').click(function() {
         if($('#parteifilter1').is(':checked')) { 
             $('#0').css('fill','rgba(255,0,0,0.45)')
