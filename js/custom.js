@@ -2,7 +2,7 @@
 $(document).ready(function(e) {   
 
     //function to get our data from the database
-    ajaxCall();
+    fetchAllElectionResults();
 
     //initialize bootstrap popover on all elements with the data-toggle popover attribute
     $(function () {

@@ -2,47 +2,75 @@
 
 namespace db;
 
+/**
+ * Class that handles the database connection and the queries
+ */
 class DbAdmin
 {
+    // Object that holds the database connection
     protected $myDb = null;
     
+    /**
+     * DbAdmin constructor.
+     *
+     * @param $dbName
+     * @param $dbUser
+     * @param $dbPass
+     */
     public function __construct($dbName, $dbUser, $dbPass)
     {
+        // open database connection if not already established
         if (!$this->myDb) {
             try {
                 
+                // connect to local database
                 $this->myDb = new \PDO('mysql:host=localhost;dbname=' . $dbName, $dbUser, $dbPass);
                 $this->myDb->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (\PDOException $e) {
                 
+                // throw exception if something during the database initialisation fails
                 throw new \Exception($e->getMessage());
             }
         }
     }
     
-    public function getElectionDataForOneParty($party) {
-        
-        if($this->myDb) {
+    /**
+     * Method to fetch the election results for one party
+     *
+     * @param $party string
+     *
+     * @return array
+     */
+    public function getElectionDataForOneParty($party)
+    {
+        if ($this->myDb) {
             
-            //todo replace string chaining with bindParam statement
-            $command = 'SELECT SUM(' . $party . ')' . $party . ' FROM berlin_elections group by bezirk_nr;';
-            $stmt = $this->myDb->query($command);
-    
+            // prepare query for execution and bind parameters to placeholders
+            $query = "SELECT SUM(':party') FROM berlin_elections group by bezirk_nr;";
+            $stmt = $this->myDb->query($query);
+            $stmt->bindParam(':party', $party);
+            $stmt->execute();
+            
+            //fetch and return all query results
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
             
+            // throw exception if database connection closed
             throw new \Exception('No active db connection!');
         }
     }
     
     /**
-     * Methode, um alle Wahlergebnisse aus der Datenbank abzufragen.
+     * Method to fetch all election results
+     *
+     * @return array
      */
     public function getElectionResults()
     {
         if ($this->myDb) {
             
-            $command = 'select
+            // database query
+            $query = 'select
 SUM(gueltig) as gueltig,
 SUM(cdu) +
 SUM(die_linke) +
@@ -70,52 +98,63 @@ SUM(fricke) +
 SUM(otto) +
 SUM(beckmann) +
 SUM(snelinski) as gesamt,
-SUM(cdu) as cdu,
-SUM(die_linke) as die_linke,
-SUM(spd) as spd,
-SUM(gruene) as gruene,
-SUM(fdp) as fdp,
-SUM(piraten) as piraten,
-SUM(npd) as npd,
-SUM(bueso) as bueso,
-SUM(mlpd) as mlpd,
-SUM(afd) as afd,
-SUM(big) as big,
-SUM(pro_deutschland) as pro_deutschland,
-SUM(freie_waehler) as freie_waehler,
-SUM(die_partei) as die_partei,
-SUM(boes) as boes,
-SUM(b) as b,
-SUM(buendniss_21_rrp) as buendniss_21_rrp,
-SUM(dkp) as dkp,
-SUM(die_violetten) as die_violetten,
-SUM(ditsche) as ditsche,
-SUM(di_leo) as di_leo,
-SUM(sylla) as sylla ,
-SUM(fricke) as fricke ,
-SUM(otto) as otto,
-SUM(beckmann) as beckmann,
-SUM(snelinski) as snelinski
+SUM(cdu) as CDU,
+SUM(die_linke) as "Die Linke",
+SUM(spd) as SPD,
+SUM(gruene) as Gruene,
+SUM(fdp) as FDP,
+SUM(piraten) as Piraten,
+SUM(npd) as NPD,
+SUM(bueso) as Bueso,
+SUM(mlpd) as MLPD,
+SUM(afd) as AFD,
+SUM(big) as BIG,
+SUM(pro_deutschland) as "Pro Deutschland",
+SUM(freie_waehler) as "Freie Wähler",
+SUM(die_partei) as "Die Partei",
+SUM(boes) as "Boes",
+SUM(b) as B,
+SUM(buendniss_21_rrp) as "Bündniss 21 RRP",
+SUM(dkp) as DKP,
+SUM(die_violetten) as "Die Violetten",
+SUM(ditsche) as Ditsche,
+SUM(di_leo) as "Die Leo",
+SUM(sylla) as Sylla ,
+SUM(fricke) as Fricke ,
+SUM(otto) as Otto,
+SUM(beckmann) as Beckmann,
+SUM(snelinski) as Snelinksi
 from
 berlin_elections
 group by
 bezirk_nr;';
             
-            $stmt = $this->myDb->prepare($command);
+            // prepare query for execution
+            $stmt = $this->myDb->prepare($query);
             $stmt->execute();
             
+            // fetch and return all query results
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
             
+            // throw exception if database connection closed
             throw new \Exception('No active db connection!');
         }
     }
     
+    /**
+     * Method to fetch all election results for one district
+     *
+     * @param $district
+     *
+     * @return array
+     */
     public function getResultsForOneDistrict($district)
     {
         if ($this->myDb) {
             
-            $command = 'SELECT
+            // database query
+            $query = 'SELECT
 SUM(cdu) as CDU,
 SUM(die_linke) as "Die Linke",
 SUM(spd) as SPD,
@@ -146,31 +185,17 @@ FROM
 berlin_elections
 WHERE bezirk_name = :bezirkName ;';
             
-            $stmt = $this->myDb->prepare($command);
+            // prepare query for execution and bind parameters to placeholders
+            $stmt = $this->myDb->prepare($query);
             $stmt->bindParam(':bezirkName', $district);
             $stmt->execute();
             
+            // fetch and return all query results
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
             
+            // throw exception if database connection closed
             throw new \Exception('No active db connection!');
-        }
-    }
-    
-    /**
-     * Methode, welche einfach den ersten Eintrag der Datenbank zurückgibt.
-     *
-     * @return bool
-     */
-    public function getFirstDbRow()
-    {
-        if ($this->myDb) {
-            
-            $command = 'select * from berlin_elections limit 1;';
-            
-            $stmt = $this->myDb->prepare($command);
-            
-            return $stmt->execute();
         }
     }
 }

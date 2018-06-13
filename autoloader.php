@@ -1,13 +1,19 @@
 <?php
-spl_autoload_register(function ($className) {
+// function to handle script loading
+spl_autoload_register(
+    function ($className) {
 
-    $filePath = 'src/' . str_replace('\\', '/', $className) . '.php';
-    if (file_exists($filePath)) {
+        // replace backslashes with forward slashes
+        $filePath = 'src/' . str_replace('\\', '/', $className) . '.php';
 
-        include $filePath;
-        return true;
+        // check if the file exists and load it
+        if (file_exists($filePath)) {
+
+            include $filePath;
+
+            return true;
+        }
+
+        return false;
     }
-
-    return false;
-
-});
+);
