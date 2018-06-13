@@ -37,7 +37,7 @@ git pull
 
 - Start the XAMPP Server and modify its httpd.conf data text by replacing following information.
 
-- The DocumentRoot of the file should be adapted to your visualizR folder:
+- The DocumentRoot of the file should be adapted to the location of your visualizR folder:
 ```
 shell
 DocumentRoot "C:/xampp/htdocs"
@@ -49,7 +49,7 @@ shell
 DocumentRoot "C:/Users/user/Desktop/visualizR"
 ```
 
-- The DocumentRoot of the file should be adapted to your visualizR folder:
+- The Directory of the file should be adapted to the location of your visualizR folder:
 
 ```
 shell
