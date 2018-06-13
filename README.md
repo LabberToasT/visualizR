@@ -13,23 +13,20 @@ Authors:
 - Open our visualizR Repository on GitHub.
 - Download or "clone" the visualizR project from GitHub.
 - Contact our sysadmin to get access credentials to the GitHub account.
-```
-shell
+```shell
 git clone https://github.com/xxxxxxx/visualizR.git
 ```
 - The folder should download automatically.
 - In the visualizR folder, change your Git credentials:
 
-```
-shell
+```shell
 git config --global user.name "Your Name"
 git config --global user.email "your@address"
 ```
 You should now be able to commit and push to this remote Repository.
 
 - Get updated versions of the visualizR Repository:
-```
-shell
+```shell
 git pull
 ```
 
@@ -38,27 +35,23 @@ git pull
 - Start the XAMPP Server and modify its httpd.conf data text by replacing following information.
 
 - The DocumentRoot of the file should be adapted to the location of your visualizR folder:
-```
-shell
+```shell
 DocumentRoot "C:/xampp/htdocs"
 ```
 should be replaced with
 
-```
-shell
+```shell
 DocumentRoot "C:/Users/user/Desktop/visualizR"
 ```
 
 - The Directory of the file should be adapted to the location of your visualizR folder:
 
-```
-shell
+```shell
 <Directory "C:/xampp/htdocs">
 ```
 should be replaced with
 
-```
-shell
+```shell
 <Directory "C:/Users/user/Desktop/visualizR">
 ```
 
@@ -80,14 +73,12 @@ Import this file into phpMyAdmin.
 
 - Install composer locally. See: https://getcomposer.org/download/
 - To install new or update existing components and their dependencies:
-```
-shell
+```shell
 composer install
 ```
 or
 
-```
-shell
+```shell
 composer update
 ```
 
