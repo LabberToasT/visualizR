@@ -81,6 +81,7 @@ $allElectionResultsApiCallback = function (Request $request, Response $response,
     foreach ($result as $key => $district) {
         
         natcasesort($district);
+        unset($district['gueltig'], $district['gesamt']);
         $result[$key] = array_reverse($district);
     }
     

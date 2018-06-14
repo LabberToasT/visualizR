@@ -19,7 +19,7 @@
                     list += '<li>' + party + ': ' + allElectionResults[districtIndex][party] + '</li>';
 
                     //stop loop execution after the first 8 entries
-                    if (8 === counter++) {
+                    if (7 === counter++) {
                         break;
                     }
                 }
