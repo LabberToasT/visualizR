@@ -3,7 +3,7 @@
  * Controller that handles all incoming traffic.
  * Is a url route matched then the corresponding callback is invoked.
  */
-include 'config/config.php';
+include 'assets/config/config.php';
 
 use db\DbAdmin;
 use Klein\Request;
