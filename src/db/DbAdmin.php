@@ -35,32 +35,6 @@ class DbAdmin
     }
     
     /**
-     * Method to fetch the election results for one party
-     *
-     * @param $party string
-     *
-     * @return array
-     */
-    public function getElectionDataForOneParty($party)
-    {
-        if ($this->myDb) {
-            
-            // prepare query for execution and bind parameters to placeholders
-            $query = "SELECT SUM(':party') FROM berlin_elections group by bezirk_nr;";
-            $stmt = $this->myDb->query($query);
-            $stmt->bindParam(':party', $party);
-            $stmt->execute();
-            
-            //fetch and return all query results
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        } else {
-            
-            // throw exception if database connection closed
-            throw new \Exception('No active db connection!');
-        }
-    }
-    
-    /**
      * Method to fetch all election results
      *
      * @return array
@@ -134,6 +108,32 @@ bezirk_nr;';
             $stmt->execute();
             
             // fetch and return all query results
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } else {
+            
+            // throw exception if database connection closed
+            throw new \Exception('No active db connection!');
+        }
+    }
+    
+    /**
+     * Method to fetch the election results for one party
+     *
+     * @param $party string
+     *
+     * @return array
+     */
+    public function getElectionDataForOneParty($party)
+    {
+        if ($this->myDb) {
+            
+            // prepare query for execution and bind parameters to placeholders
+            $query = "SELECT SUM(':party') FROM berlin_elections group by bezirk_nr;";
+            $stmt = $this->myDb->query($query);
+            $stmt->bindParam(':party', $party);
+            $stmt->execute();
+            
+            //fetch and return all query results
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
             
