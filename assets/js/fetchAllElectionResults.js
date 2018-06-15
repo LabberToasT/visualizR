@@ -4,7 +4,7 @@
     $.ajax({
         'dataType': 'JSON',// return type = json string
         'method': 'POST',// server query to be handled as post request
-        'url': "http://localhost:8888/api/all_election_results", // url of endpoint todo remove port
+        'url': "http://localhost/api/all_election_results", // url of endpoint
         'success': function (allElectionResults) {
 
             var districtIndex;

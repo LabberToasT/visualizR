@@ -3,7 +3,7 @@
     $.ajax({
         'dataType': 'JSON',
         'method': 'POST',
-        'url': "http://localhost:8888/api/district_election_results",// todo remove port
+        'url': "http://localhost/api/district_election_results",
         'data': {
 
             // parameter which is send with the post request
